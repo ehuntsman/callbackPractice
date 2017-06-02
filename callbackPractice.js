@@ -91,6 +91,16 @@ contains(names, 'Colt', function(result){
 
     //Code Here
 
+function uniq(arr, cb){
+  newArray = [];
+  for(var i = 0; i < arr.length; i++){
+    if(newArray.indexOf(arr[i]) < 0){
+      newArray.push(arr[i]);
+    }
+  }
+  cb(newArray);
+}
+
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
@@ -100,6 +110,12 @@ uniq(names, function(uniqArr){
 // function to return the indices and item.
 
     //Code Here 
+
+function each(arr, cb){
+  for(var i = 0; i < arr.length; i++){
+    cb(arr[i], arr.indexOf(arr[i]));
+  }
+}
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -111,6 +127,14 @@ each(names, function(item, indice){
 // and returns that user.
 
  //Code Here
+
+ function getUserById(arr, idNum, cb){
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i].id == idNum){
+      cb(arr[i]);
+    }
+  }
+ }
 
 var users = [
   {
